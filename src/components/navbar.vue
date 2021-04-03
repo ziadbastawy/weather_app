@@ -25,12 +25,10 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    font-weight: bold;
 }
 
 .app_name{
-    
-    font-style: normal;
-    font-weight: bold;
     font-size: 36px;
     letter-spacing: 0.05em;
     color: #FFFFFF;
@@ -45,9 +43,6 @@ nav {
 .temp_btn {
     background: transparent;
     border: none;
-    
-    font-style: normal;
-    font-weight: bold;
     font-size: 24px;
     color: #FFFFFF;
     min-width: 40px;

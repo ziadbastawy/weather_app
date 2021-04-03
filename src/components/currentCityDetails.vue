@@ -20,7 +20,7 @@
 
 <script>
 export default {
-  name:'temperature details' 
+  name:'temperature_details' 
 }
 </script>
 
