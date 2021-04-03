@@ -5,7 +5,7 @@
                 instaweather
             </p>
         </div>
-        <div class="">
+        <div>
             <button class="temp_btn">C</button>
             <button class="temp_btn active">F</button>
         </div>
@@ -15,7 +15,7 @@
 
 <script>
 export default {
-    
+  name:'navbar'
 }
 </script>
 
@@ -28,7 +28,7 @@ nav {
 }
 
 .app_name{
-    font-family: 'Work Sans';
+    
     font-style: normal;
     font-weight: bold;
     font-size: 36px;
@@ -45,7 +45,7 @@ nav {
 .temp_btn {
     background: transparent;
     border: none;
-    font-family: 'Work Sans';
+    
     font-style: normal;
     font-weight: bold;
     font-size: 24px;

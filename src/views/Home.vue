@@ -2,6 +2,7 @@
   <div class="home">
     <div class="container">
       <navbar />
+      <current-city-details /> 
     </div>
   </div>
 </template>
@@ -13,7 +14,9 @@
 export default {
   name: 'Home',
   components: {
-    navbar: () => import('../components/navbar')
+    navbar: () => import('../components/navbar'),
+    currentCityDetails: () => import('../components/currentCityDetails')
+    
   }
 }
 </script>
@@ -29,7 +32,7 @@ export default {
 }
 .container{ 
   margin: auto;
-  width: 90%;
+  width: 80%;
   /* background: #f00; */
   height: 50vh;
   
