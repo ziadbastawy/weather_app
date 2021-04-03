@@ -1,7 +1,7 @@
 <template>
     <section class="current_city">
         <div class="current_city_details">
-            <h1 class="current_city_details_header">new cairo</h1>
+            <h1 class="current_city_details_header">{{currentCity}}</h1>
             <p class="date">{{cuurentDate|changeDate }}</p>
             <img  class="waether_icon" :src="require(`../assets/${currentWeather.icon}.png`)" :alt="currentWeather.icon"/>
             <p class="status">{{currentWeather.summary}}</p>
@@ -21,7 +21,7 @@
 <script>
 export default {
   name:'temperature_details',
-  props:['currentWeather', 'fullDayWeather', 'temp_type'],
+  props:['currentWeather', 'fullDayWeather', 'temp_type', 'currentCity'],
   data () {
     return {
       cuurentDate: new Date

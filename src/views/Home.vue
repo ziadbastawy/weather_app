@@ -2,7 +2,7 @@
   <div class="home">
     <div class="container">
       <navbar @changeType="changeTempType"/>
-      <current-city-details :currentWeather="filteredCurrentWeather" :fullDayWeather="dailyWeather.data[0]" :temp_type="temp_type" /> 
+      <current-city-details :currentCity="currentCity" :currentWeather="filteredCurrentWeather" :fullDayWeather="dailyWeather.data[0]" :temp_type="temp_type" /> 
       <tabs :hourlyWeather="filteredHourlyWeather" :dailyWeather="filteredDailyWeather" /> 
     </div>
   </div>
@@ -28,7 +28,8 @@ export default {
         data:[]
       },
       hourlyWeather:{},
-      temp_type:'F'
+      temp_type:'F',
+      currentCity:''
     }
   },
   computed: { 
@@ -101,6 +102,7 @@ export default {
             lng: position.coords.longitude
           }
           this.getWeatherInformation()
+          this.getAddressFromLocation(this.currentLocation.lat, this.currentLocation.lng)
         },
         () => {
           alert('Please enable your GPS position feature from setting.')
@@ -109,6 +111,16 @@ export default {
         }
       )
     },
+    getAddressFromLocation (lat, lng) {
+      this.$axios.get(`https://maps.googleapis.com/maps/api/geocode/json?latlng=${lat},${ lng}&key=AIzaSyCS1ogFRwg0YPjbOMilR8N4Z_HeYZlEd3Y`).then(response => {
+        this.currentCity = response.data.results[0].address_components[3].short_name
+        console.log(response)
+        console.log(response.data)
+      }).catch(err => {
+        console.log(err.data)
+      })
+    },
+
     changeTempType (type) {
       this.temp_type = type
     }
