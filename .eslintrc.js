@@ -16,13 +16,13 @@ module.exports = {
     'eqeqeq': 'error',
     'no-invalid-this': 'error',
     'no-return-assign': 'error',
-    'no-unused-expressions': ['error', { 'allowTernary': true }],
+    'no-unused-expressions': 'off',
     'no-useless-concat': 'error',
     'no-useless-return': 'error',
 
     // Variable
-    'init-declarations': 'error',
-    'no-use-before-define': 'error',
+    'init-declarations': 'off',
+    'no-use-before-define': 'off',
 
     // Stylistic Issues
     'array-bracket-newline': ['error', { 'multiline': true, 'minItems': null }],

@@ -7,7 +7,7 @@
         <div class="tabs_cards">
             <div class="card" v-for="i in 12" :key="i">
                 <p class="card_time">time</p>
-                <img class="card_img" src="../assets/sunny_cloud.svg" alt="">
+                <img class="card_img" src="../assets/clear-day.png" alt="">
                 <p class="card_temp" >81 &deg; </p>
             </div>
         </div>

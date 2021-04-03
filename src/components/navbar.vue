@@ -6,8 +6,8 @@
             </p>
         </div>
         <div>
-            <button class="temp_btn">C</button>
-            <button class="temp_btn active">F</button>
+            <button class="temp_btn" :class="{'active' : temp_type == 'C' }" @click="changeTempType('C')">C</button>
+            <button class="temp_btn" :class="{'active' : temp_type == 'F' }" @click="changeTempType('F')" >F</button>
         </div>
     </nav>
 </template>
@@ -15,7 +15,18 @@
 
 <script>
 export default {
-  name:'navbar'
+  name:'navbar',
+  data () {
+    return {
+      temp_type:'F'
+    }
+  },
+  methods: {
+    changeTempType (type) {
+      this.temp_type = type
+      this.$emit('changeType', type)
+    }
+  }
 }
 </script>
 
@@ -47,6 +58,7 @@ nav {
     color: #FFFFFF;
     min-width: 40px;
     padding: .7rem 1.7rem;
+    outline: none;
 }
 
 .temp_btn:nth-child(1).active {
@@ -55,6 +67,9 @@ nav {
 
 .temp_btn:nth-child(2).active {
     border-left: 2px solid #fff  ;
+}
+.type:focus {
+    outline: none;
 }
 
 .active {

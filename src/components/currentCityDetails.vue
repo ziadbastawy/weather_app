@@ -2,17 +2,17 @@
     <section class="current_city">
         <div class="current_city_details">
             <h1 class="current_city_details_header">new cairo</h1>
-            <p class="date">Friday 20, 2020</p>
-            <img  class="waether_icon" src="../assets/sunny_cloud.svg" alt="iocn"/>
-            <p class="status">Cloudy</p>
+            <p class="date">{{cuurentDate|changeDate }}</p>
+            <img  class="waether_icon" :src="require(`../assets/${currentWeather.icon}.png`)" :alt="currentWeather.icon"/>
+            <p class="status">{{currentWeather.summary}}</p>
         </div>
         <div class="current_city_temp_details">
-            <h1 class="current_temp">72 <sup> &deg; </sup></h1>
+            <h1 class="current_temp">{{currentWeather.temperature}}<sup>&deg;</sup></h1>
             <p class="temp_range">
-                <span> 81  &deg; </span> / <span class="lower_temp"> 63  &deg; </span>
+                <span> {{changeTemp(fullDayWeather.temperatureHigh)}}&deg; </span> / <span class="lower_temp"> {{changeTemp(fullDayWeather.temperatureLow)}}&deg; </span>
             </p>
-            <p class="temp_summary">
-                Cloudy throughout the day
+            <p class="temp_summary" v-if="fullDayWeather">
+                {{fullDayWeather.summary}}
             </p>
         </div>
     </section>
@@ -20,7 +20,23 @@
 
 <script>
 export default {
-  name:'temperature_details' 
+  name:'temperature_details',
+  props:['currentWeather', 'fullDayWeather', 'temp_type'],
+  data () {
+    return {
+      cuurentDate: new Date
+    }   
+  },
+  computed:{
+    changeTemp () {
+      return temp => {
+        if (this.temp_type !== 'F') {
+          return parseInt((temp - 32) * 5 / 9)
+        } else return parseInt(temp)
+      }
+    }
+  }
+   
 }
 </script>
 
@@ -42,6 +58,9 @@ export default {
     font-size: 20px;
     line-height: 23px;
     letter-spacing: 0.05em;
+}
+.current_city .waether_icon {
+    max-width: 100px;
 }
 .current_city .status {
     font-size: 30px;
