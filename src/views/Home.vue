@@ -3,7 +3,7 @@
     <div class="container">
       <navbar @changeType="changeTempType"/>
       <current-city-details :currentWeather="filteredCurrentWeather" :fullDayWeather="dailyWeather.data[0]" :temp_type="temp_type" /> 
-      <tabs /> 
+      <tabs :hourlyWeather="filteredHourlyWeather" :dailyWeather="filteredDailyWeather" /> 
     </div>
   </div>
 </template>
@@ -43,7 +43,7 @@ export default {
           }
           return data
         })
-        return filteredArr
+        return filteredArr.splice(23)
       } else {
         return []
       }
@@ -51,8 +51,9 @@ export default {
     filteredDailyWeather () {
       if (this.dailyWeather.data) {
         const filteredArr = this.dailyWeather.data.map(item => {
+          const averageTemp = (item.temperatureHigh + item.temperatureLow) / 2
           const data = {
-            temperature:parseInt(item.temperature),
+            temperature:parseInt(averageTemp),
             time:item.time,
             icon:item.icon
           }
