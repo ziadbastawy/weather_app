@@ -64,7 +64,9 @@ export default {
         color: rgba(255, 255, 255, .75);
         min-width: 40px;
         position: relative;
-        padding: 10px 20px;
+        padding: 10px 0px;
+        margin: 0px;
+        margin-right: 1.5rem ;
         outline: none;
         cursor: pointer;
     }
@@ -120,5 +122,6 @@ export default {
         font-size: 36px;
         line-height: 42px;
         letter-spacing: 0.05em;
+        margin: 1rem 0;
     }
 </style>

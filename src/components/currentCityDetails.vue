@@ -70,14 +70,18 @@ export default {
     font-size: 144px;
     line-height: 169px;
     letter-spacing: 0.05em;
-    margin: 20px 0px
+    margin: 0px
 
 }
-
+.current_city_temp_details {
+    text-align: right;
+}
 .current_city .temp_range {
     font-size: 48px;
     line-height: 56px;
+    font-weight: 400;
     letter-spacing: 0.05em;
+    margin: 1.5rem 0;
 }
 .current_city .temp_range .lower_temp {
     color: rgba(255, 255, 255, 0.75);
