@@ -32,11 +32,11 @@ export default {
 
 <style>
 nav {
-    padding: 20px; 
     display: flex;
     justify-content: space-between;
     align-items: center;
     font-weight: bold;
+    padding: 1.5rem 0;
 }
 
 .app_name{
@@ -59,6 +59,7 @@ nav {
     min-width: 40px;
     padding: .7rem 1.7rem;
     outline: none;
+    cursor: pointer;
 }
 
 .temp_btn:nth-child(1).active {

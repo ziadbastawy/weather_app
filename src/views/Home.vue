@@ -24,7 +24,9 @@ export default {
       currentLocation:{},
       apiKey:'a177f8481c31fa96c3f95ad4f4f84610',
       currentlyWeather:{},
-      dailyWeather:{},
+      dailyWeather:{
+        data:[]
+      },
       hourlyWeather:{},
       temp_type:'F'
     }
@@ -125,7 +127,7 @@ export default {
 }
 .container{ 
   margin: auto;
-  width: 80%;
+  width: 75%;
   /* background: #f00; */
   height: 50vh;
   

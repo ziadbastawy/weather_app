@@ -37,8 +37,7 @@ export default {
   computed: {
     changeDateFromTime () {
       return time => {
-        const date = new Date(time * 1000)      
-        return this.days[date.getDay()]
+        return new Date(time * 1000).toLocaleString('en-us', {  weekday: 'short' }) 
       }
     }
 
@@ -67,6 +66,7 @@ export default {
         position: relative;
         padding: 10px 20px;
         outline: none;
+        cursor: pointer;
     }
 
     .tabs .tab_btn.active {
