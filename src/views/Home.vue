@@ -114,8 +114,6 @@ export default {
     getAddressFromLocation (lat, lng) {
       this.$axios.get(`https://maps.googleapis.com/maps/api/geocode/json?latlng=${lat},${ lng}&key=AIzaSyCS1ogFRwg0YPjbOMilR8N4Z_HeYZlEd3Y`).then(response => {
         this.currentCity = response.data.results[0].address_components[3].short_name
-        console.log(response)
-        console.log(response.data)
       }).catch(err => {
         console.log(err.data)
       })
