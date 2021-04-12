@@ -85,13 +85,14 @@ export default {
   methods: {
     getWeatherInformation () {
       return new Promise(resolve => {
-        this.$axios.get(`https://api.darksky.net/forecast/${this.apiKey}/${this.currentLocation.lat},${this.currentLocation.lng}`).then(res => {
-          const {currently, daily, hourly} = res.data
-          this.currentlyWeather = currently
-          this.dailyWeather = daily
-          this.hourlyWeather = hourly
-          resolve(res)
-        })
+        fetch(`https://api.darksky.net/forecast/${this.apiKey}/${this.currentLocation.lat},${this.currentLocation.lng}`).then(response => response.json())
+          .then(result => {
+            const {currently, daily, hourly} = result
+            this.currentlyWeather = currently
+            this.dailyWeather = daily
+            this.hourlyWeather = hourly
+            resolve()
+          })          
       })
     },
     getCurrentLocation () {
@@ -112,7 +113,7 @@ export default {
       )
     },
     getAddressFromLocation (lat, lng) {
-      this.$axios.get(`https://maps.googleapis.com/maps/api/geocode/json?latlng=${lat},${ lng}&key=AIzaSyCS1ogFRwg0YPjbOMilR8N4Z_HeYZlEd3Y`).then(response => {
+      this.$axios.get(`https://maps.googleapis.com/maps/api/geocode/json?latlng=${lat},${lng}&key=AIzaSyCS1ogFRwg0YPjbOMilR8N4Z_HeYZlEd3Y`).then(response => {
         this.currentCity = response.data.results[0].address_components[3].short_name
       }).catch(err => {
         console.log(err.data)
@@ -137,9 +138,14 @@ export default {
 }
 .container{ 
   margin: auto;
-  width: 75%;
+  width: 80%;
   /* background: #f00; */
-  height: 50vh;
+  /* height: 50vh; */
   
+} 
+@media (max-width:1023px)  {
+  .container{
+    width: 90%;
+  }
 }
 </style>
