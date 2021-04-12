@@ -150,15 +150,21 @@ export default {
   margin: 1rem 0;
 }
 
-@media (max-width: 767px) and (min-width: 350px) {
+@media (max-width: 1024px) and (min-width: 350px) {
   .tabs {
     margin-top: 10%;
   }
   .tabs_cards .card,
   .tabs_cards .daily_card {
     min-width: calc(100% / 4);
-    padding: 10px;
-    text-align: center;
   }
+}
+
+@media (max-width: 1024px) and (min-width: 766px) {
+  .tabs_cards .card,
+  .tabs_cards .daily_card {
+    min-width: calc(100% / 5);
+  }
+
 }
 </style>
